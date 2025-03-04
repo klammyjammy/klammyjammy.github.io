@@ -11,4 +11,5 @@ body {
     left: unset !important;
     width: unset !important;
     height: unset !important;
+	max-width: 960px;
 }
