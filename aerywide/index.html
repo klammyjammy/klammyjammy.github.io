@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>AERYWIDE</title>
+</head>
+<body>
+    <img id="flippingImage" class="hidden" src="mr-wheelwide.png" alt="Flipping Image">
+    <button id="playBtn" onclick="startMusic()">START PITBALLIN'</button>
+
+    <audio id="myAudio">
+        <source src="hotel-room-service.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        function startMusic() {
+            const audio = document.getElementById('myAudio');
+            const body = document.body;
+            const image = document.getElementById('flippingImage');
+            const button = document.getElementById('playBtn');
+
+            audio.play();
+            body.classList.add('flashing');
+            image.classList.remove('hidden');
+            image.classList.add('flipping');
+            button.classList.add('hidden');
+        }
+      </script>
+</body>
+</html>

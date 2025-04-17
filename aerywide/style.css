@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.5s;
+  }
+
+.flashing {
+    animation: flashColors 2s infinite;
+}
+
+.hidden {
+    display: none;
+}
+
+.flipping {
+    animation: flipHorizontal 2s infinite;
+    transition: transform 0.5s ease-in-out;
+    margin-top: 2rem;
+}
+
+button {
+    padding: 1em 2em;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+@keyframes flashColors {
+    0%   { background-color: red; }
+    25%  { background-color: yellow; }
+    50%  { background-color: lime; }
+    75%  { background-color: cyan; }
+    100% { background-color: red; }
+}
+
+@keyframes flipHorizontal {
+    0%   { transform: scaleX(1); }
+    50%  { transform: scaleX(-1); }
+    100% { transform: scaleX(1); }
+}
