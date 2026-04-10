@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fish Wheelspin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="app">
+
+    <div class="bg-stripes" id="bubbleContainer"></div>
+
+    <header class="site-header">
+      <div class="badge">
+        <div class="badge-ring">
+          <div class="badge-inner">
+            <span class="badge-title">Fishy<br>Friday</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+
+      <div class="slot-stage">
+        <div class="stage-arrow stage-arrow--left"></div>
+        <div class="stage-arrow stage-arrow--right"></div>
+
+        <div class="slot-window" id="slotWindow">
+          <div class="slot-track" id="slotTrack"></div>
+          <div class="winner-frame" id="winnerFrame"></div>
+          <div class="slot-fade slot-fade--top"></div>
+          <div class="slot-fade slot-fade--bottom"></div>
+        </div>
+      </div>
+
+      <button class="spin-btn" id="spinBtn">Spin!</button>
+
+      <div class="result-card" id="resultCard">
+        <div class="result-card__inner">
+          <div class="result-img-wrap">
+            <img class="result-img" id="resultImg" src="" alt="" />
+            <div class="result-img-fallback" id="resultImgFallback"></div>
+          </div>
+          <div class="result-info">
+            <p class="result-label">You got</p>
+            <h2 class="result-name" id="resultName"></h2>
+            <p class="result-desc" id="resultDesc"></p>
+            <p class="result-summary" id="resultSummary"></p>
+            <a class="result-link" id="resultLink" href="#" target="_blank" rel="noopener">
+              Read more on Wikipedia
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="site-footer">
+      <span id="fishCount"></span>
+    </footer>
+
+  </div>
+
+  <script>
+    // Spawn floating bubbles in the background
+    const container = document.getElementById('bubbleContainer');
+    for (let i = 0; i < 14; i++) {
+      const b = document.createElement('div');
+      b.className = 'bubble';
+      const size = 12 + Math.random() * 36;
+      b.style.cssText = `
+        width: ${size}px;
+        height: ${size}px;
+        left: ${Math.random() * 100}%;
+        bottom: ${-size}px;
+        animation-duration: ${8 + Math.random() * 14}s;
+        animation-delay: ${Math.random() * 10}s;
+      `;
+      container.appendChild(b);
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
