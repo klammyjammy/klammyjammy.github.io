@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fish Wheelspin</title>
+  <title>Fishy Friday</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -19,7 +19,7 @@
       <div class="badge">
         <div class="badge-ring">
           <div class="badge-inner">
-            <span class="badge-title">Fishy<br>Friday</span>
+            <span class="badge-title" id="badgeTitle"></span>
           </div>
         </div>
       </div>
@@ -38,8 +38,6 @@
           <div class="slot-fade slot-fade--bottom"></div>
         </div>
       </div>
-
-      <button class="spin-btn" id="spinBtn">Spin!</button>
 
       <div class="result-card" id="resultCard">
         <div class="result-card__inner">
@@ -60,6 +58,8 @@
         </div>
       </div>
 
+      <button class="spin-btn" id="spinBtn">Spin!</button>
+
     </main>
 
     <footer class="site-footer">
@@ -69,6 +69,23 @@
   </div>
 
   <script>
+    // Animate "Fishy Friday" letter by letter with a wave
+    const titleEl = document.getElementById("badgeTitle");
+    const lines = ["Fishy\u00A0Friday"];
+    let letterIdx = 0;
+    lines.forEach((word, lineIdx) => {
+      const lineSpan = document.createElement("span");
+      lineSpan.style.display = "block";
+      word.split("").forEach(char => {
+        const s = document.createElement("span");
+        s.className = "wave-letter";
+        s.textContent = char;
+        s.style.animationDelay = `${letterIdx * 0.08}s`;
+        lineSpan.appendChild(s);
+        letterIdx++;
+      });
+      titleEl.appendChild(lineSpan);
+    });
     // Spawn floating bubbles in the background
     const container = document.getElementById('bubbleContainer');
     for (let i = 0; i < 14; i++) {

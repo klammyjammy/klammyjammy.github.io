@@ -54,6 +54,7 @@ body {
   width: 100%;
   max-width: 600px;
   min-height: 100vh;
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -151,7 +152,7 @@ body {
 }
 
 .badge-ring {
-  width: 160px;
+  /* width: 160px; */
   height: 160px;
   border-radius: 50%;
   /* background: var(--purple); */
@@ -235,6 +236,7 @@ body {
   width: 100%;
   max-width: 480px;
   position: relative;
+  overflow: visible !important;
 }
 
 .stage-arrow {
@@ -342,6 +344,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.15;
+  text-transform: capitalize;
 }
 
 .slot-item__desc {
@@ -363,7 +366,7 @@ body {
   height: var(--item-h);
   transform: translateY(-50%);
   border: 3px solid var(--teal-light);
-  border-radius: 16px;
+  border-radius: 10px;
   z-index: 4;
   pointer-events: none;
   opacity: 0;
@@ -450,45 +453,50 @@ body {
   border-radius: 20px;
   overflow: hidden;
   opacity: 0;
+  max-height: 0;
   transform: translateY(16px) scale(0.97);
   transition: opacity 0.4s cubic-bezier(0.34,1.56,0.64,1),
-              transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+              transform 0.4s cubic-bezier(0.34,1.56,0.64,1),
+              max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
 }
 
 .result-card.visible {
   opacity: 1;
+  max-height: 800px;
   transform: translateY(0) scale(1);
   pointer-events: auto;
 }
 
 .result-card__inner {
   display: flex;
+  flex-direction: column;
 }
 
 .result-img-wrap {
-  width: 140px;
+  width: 100%;
   flex-shrink: 0;
   background: var(--indigo-deep);
   position: relative;
-  aspect-ratio: 1;
+  max-height: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border-right: 2px solid rgba(91,188,204,0.2);
+  border-bottom: 2px solid rgba(91,188,204,0.2);
 }
 
 .result-img {
   width: 100%;
-  height: 100%;
+  max-height: 220px;
   object-fit: cover;
+  object-position: center center;
   display: block;
 }
 
 .result-img-fallback {
-  position: absolute;
-  inset: 0;
+  width: 100%;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -517,6 +525,7 @@ body {
   color: var(--teal-light);
   line-height: 1.05;
   margin-bottom: 3px;
+  text-transform: capitalize;
 }
 
 .result-desc {
@@ -559,7 +568,8 @@ body {
    FOOTER
 ================================ */
 .site-footer {
-  position: relative;
+  position: absolute;
+  bottom: 8px;
   z-index: 2;
   margin-top: 16px;
   font-family: var(--font-body);
@@ -589,8 +599,55 @@ body {
   :root { --item-h: 84px; }
   .badge-ring { width: 130px; height: 130px; }
   .badge-title { font-size: 32px; }
-  .result-img-wrap { width: 110px; }
   .result-name { font-size: 22px; }
   .stage-arrow--left  { left: -14px; }
   .stage-arrow--right { right: -14px; }
+}
+
+/* ================================
+   WAVE TITLE LETTERS
+================================ */
+.wave-letter {
+  display: inline-block;
+  animation: letterWave 1.8s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+@keyframes letterWave {
+  0%, 100% { transform: translateY(0)    rotate(0deg);   }
+  20%       { transform: translateY(-8px) rotate(-4deg);  }
+  40%       { transform: translateY(3px)  rotate(2deg);   }
+  60%       { transform: translateY(-5px) rotate(-2deg);  }
+  80%       { transform: translateY(2px)  rotate(1deg);   }
+}
+
+/* ================================
+   SHOW / HIDE SPIN VIEW
+================================ */
+
+.main {
+  flex: 1;
+  justify-content: center;
+}
+
+.site-header,
+.slot-stage {
+  max-height: 600px;
+  opacity: 1;
+  transform: translateY(0);
+  overflow: hidden;
+  transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity    0.4s ease,
+              transform  0.4s ease,
+              margin     0.4s ease;
+}
+
+.site-header.hidden,
+.slot-stage.hidden {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-12px);
+  pointer-events: none;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }

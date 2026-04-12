@@ -45,7 +45,7 @@ const PLACEHOLDER_FISH = [
 
 // ─── Emoji fallback map ───────────────────────────────────────────────────────
 
-const FISH_EMOJI = ["🐟","🐠","🐡","🦈","🐙","🦑","🦐","🦞","🦀","🐬","🐳","🐋","🦭","🐊"];
+const FISH_EMOJI = ["🐟"];
 
 function fishEmoji(name) {
   let h = 0;
@@ -57,6 +57,7 @@ function fishEmoji(name) {
 
 let FISH = [];
 let spinning = false;
+let hasSpun  = false;
 
 // ─── DOM refs ─────────────────────────────────────────────────────────────────
 
@@ -71,6 +72,8 @@ const resultDesc  = document.getElementById('resultDesc');
 const resultSummary = document.getElementById('resultSummary');
 const resultLink  = document.getElementById('resultLink');
 const fishCount   = document.getElementById('fishCount');
+const siteHeader  = document.querySelector('.site-header');
+const slotStage   = document.querySelector('.slot-stage');
 
 // ─── Config ───────────────────────────────────────────────────────────────────
 
@@ -146,13 +149,16 @@ function showResult(fish) {
     resultImg.alt = fish.name;
     resultImg.style.display = 'block';
     resultImgFallback.textContent = '';
+    resultImgFallback.style.display = 'none';
     resultImg.onerror = () => {
       resultImg.style.display = 'none';
       resultImgFallback.textContent = fishEmoji(fish.name);
+      resultImgFallback.style.display = 'block';
     };
   } else {
     resultImg.style.display = 'none';
     resultImgFallback.textContent = fishEmoji(fish.name);
+    resultImgFallback.style.display = 'block';
   }
 
   resultName.textContent = fish.name;
@@ -169,9 +175,28 @@ function showResult(fish) {
   resultCard.classList.add('visible');
 }
 
+// ─── View transitions ────────────────────────────────────────────────────────
+
+function showSpinView() {
+  siteHeader.classList.remove('hidden');
+  slotStage.classList.remove('hidden');
+  resultCard.classList.remove('visible');
+  winnerFrame.classList.remove('visible', 'flash');
+  spinBtn.textContent = 'Spin!';
+  hasSpun = false;
+}
+
+function showResultView() {
+  siteHeader.classList.add('hidden');
+  slotStage.classList.add('hidden');
+  spinBtn.textContent = 'Spin again';
+  hasSpun = true;
+}
+
 // ─── Main spin function ───────────────────────────────────────────────────────
 
 function spin() {
+  if (hasSpun) { showSpinView(); return; }
   if (spinning || FISH.length === 0) return;
   spinning = true;
   spinBtn.disabled = true;
@@ -239,8 +264,12 @@ function onSpinComplete(winner) {
   setTimeout(() => {
     showResult(winner);
     launchConfetti();
-    spinning = false;
-    spinBtn.disabled = false;
+    // Then smoothly hide the slot + header
+    setTimeout(() => {
+      showResultView();
+      spinning = false;
+      spinBtn.disabled = false;
+    }, 400);
   }, 350);
 }
 
