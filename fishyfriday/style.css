@@ -135,7 +135,7 @@ body {
 .site-header {
   position: relative;
   z-index: 2;
-  margin-top: 32px;
+  margin-top: 64px;
   margin-bottom: 28px;
 }
 
@@ -557,6 +557,7 @@ body {
   color: var(--lavender);
   text-decoration: none;
   transition: color 0.15s;
+  margin-right: 12px;
 }
 
 .result-link:hover {
@@ -627,7 +628,7 @@ body {
 
 .main {
   flex: 1;
-  justify-content: center;
+  /* justify-content: center; */
 }
 
 .site-header,

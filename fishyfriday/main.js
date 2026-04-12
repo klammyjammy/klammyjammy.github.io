@@ -71,6 +71,7 @@ const resultName  = document.getElementById('resultName');
 const resultDesc  = document.getElementById('resultDesc');
 const resultSummary = document.getElementById('resultSummary');
 const resultLink  = document.getElementById('resultLink');
+const resultLinkINaturalist  = document.getElementById('resultLinkINaturalist');
 const fishCount   = document.getElementById('fishCount');
 const siteHeader  = document.querySelector('.site-header');
 const slotStage   = document.querySelector('.slot-stage');
@@ -172,13 +173,20 @@ function showResult(fish) {
     resultLink.style.display = 'none';
   }
 
+  if (fish.inaturalist_url) {
+    resultLinkINaturalist.href = fish.inaturalist_url;
+    resultLinkINaturalist.style.display = 'inline-flex';
+  } else {
+    resultLinkINaturalist.style.display = 'none';
+  }
+
   resultCard.classList.add('visible');
 }
 
 // ─── View transitions ────────────────────────────────────────────────────────
 
 function showSpinView() {
-  siteHeader.classList.remove('hidden');
+  // siteHeader.classList.remove('hidden');
   slotStage.classList.remove('hidden');
   resultCard.classList.remove('visible');
   winnerFrame.classList.remove('visible', 'flash');
@@ -187,7 +195,7 @@ function showSpinView() {
 }
 
 function showResultView() {
-  siteHeader.classList.add('hidden');
+  // siteHeader.classList.add('hidden');
   slotStage.classList.add('hidden');
   spinBtn.textContent = 'Spin again';
   hasSpun = true;
