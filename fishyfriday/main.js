@@ -38,6 +38,97 @@ function launchConfetti() {
 	});
 }
 
+// ─── Sound ────────────────────────────────────────────────────────────────────
+
+const SPIN_SOUNDS = [
+	{ id: 'spin-microwave', label: 'Microwave', file: 'sounds/spin-microwave.mp3' },
+	{ id: 'spin-train', label: 'Train', file: 'sounds/spin-train.mp3' },
+	{ id: 'spin-elevator', label: 'Elevator', file: 'sounds/spin-elevator.mp3' },
+	{ id: 'spin-fishing', label: 'Fishing', file: 'sounds/spin-fishing.mp3' },
+	{ id: 'spin-choir', label: 'Choir', file: 'sounds/spin-choir.mp3' },
+	{ id: 'spin-zelda', label: 'Zelda', file: 'sounds/spin-zelda.mp3' },
+];
+
+const WIN_SOUNDS = [
+	{ id: 'win-microwave', label: 'Microwave', file: 'sounds/win-microwave.mp3' },
+	{ id: 'win-train', label: 'Train', file: 'sounds/win-train.mp3' },
+	{ id: 'win-elevator', label: 'Elevator', file: 'sounds/win-elevator.mp3' },
+	{ id: 'win-fishing', label: 'Fishing', file: 'sounds/win-fishing.mp3' },
+	{ id: 'win-choir', label: 'Choir', file: 'sounds/win-choir.mp3' },
+	{ id: 'win-zelda', label: 'Zelda', file: 'sounds/win-zelda.mp3' },
+];
+
+let selectedSpinSound = SPIN_SOUNDS[0];
+let selectedWinSound = WIN_SOUNDS[0];
+let muted = false;
+
+let spinAudio = null;  // currently playing spin loop
+
+function preloadAudio(file) {
+	const a = new Audio(file);
+	a.preload = 'auto';
+	return a;
+}
+
+function playSpinLoop() {
+	if (muted) return;
+	stopSpinLoop();
+	spinAudio = preloadAudio(selectedSpinSound.file);
+	spinAudio.loop = true;
+	spinAudio.volume = 0.5;
+	spinAudio.play().catch(() => { });
+}
+
+function stopSpinLoop() {
+	if (spinAudio) {
+		spinAudio.pause();
+		spinAudio.currentTime = 0;
+		spinAudio = null;
+	}
+}
+
+function playWinSound() {
+	if (muted) return;
+	const a = preloadAudio(selectedWinSound.file);
+	a.volume = 0.7;
+	a.play().catch(() => { });
+}
+
+// ─── Sound modal ──────────────────────────────────────────────────────────────
+
+function buildSoundOptions(containerId, sounds, selectedId, onSelect) {
+	const container = document.getElementById(containerId);
+	container.innerHTML = '';
+	sounds.forEach(sound => {
+		const btn = document.createElement('button');
+		btn.className = 'sound-option' + (sound.id === selectedId ? ' selected' : '');
+		btn.textContent = sound.label;
+		btn.onclick = () => {
+			onSelect(sound);
+			buildSoundOptions(containerId, sounds, sound.id, onSelect);
+		};
+		container.appendChild(btn);
+	});
+}
+
+function openSoundModal() {
+	buildSoundOptions('spinSoundOptions', SPIN_SOUNDS, selectedSpinSound.id, s => { selectedSpinSound = s; });
+	buildSoundOptions('winSoundOptions', WIN_SOUNDS, selectedWinSound.id, s => { selectedWinSound = s; });
+	document.getElementById('muteToggle').checked = muted;
+	document.getElementById('soundModal').classList.add('open');
+	document.getElementById('soundModalOverlay').classList.add('open');
+}
+
+function closeSoundModal() {
+	document.getElementById('soundModal').classList.remove('open');
+	document.getElementById('soundModalOverlay').classList.remove('open');
+}
+
+function toggleMute() {
+	muted = document.getElementById('muteToggle').checked;
+	if (muted) stopSpinLoop();
+}
+
 // ─── Placeholder data (swap out once fish_data.json is ready) ────────────────
 
 const PLACEHOLDER_FISH = [
@@ -226,6 +317,7 @@ function spin() {
 	}
 
 	buildTrack(sequence);
+	playSpinLoop();
 
 	// The track starts so the first item is centred in the window
 	const startY = WINDOW_H / 2 - ITEM_H / 2;
@@ -267,7 +359,10 @@ function onSpinComplete(winner) {
 	winnerFrame.addEventListener('animationend', () => {
 		winnerFrame.classList.remove('flash');
 	}, { once: true });
+
 	launchConfetti();
+	stopSpinLoop();
+	playWinSound();
 
 	// Show result card and fire confetti after a short pause
 	setTimeout(() => {

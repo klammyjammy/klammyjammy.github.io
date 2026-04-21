@@ -28,7 +28,41 @@
 			</div>
 		</header>
 
+		<!-- Sound settings modal -->
+		<div class="sound-modal-overlay" id="soundModalOverlay" onclick="closeSoundModal()"></div>
+		<div class="sound-modal" id="soundModal">
+			<button class="sound-modal__close" onclick="closeSoundModal()">✕</button>
+			<h2 class="sound-modal__title">Sound Settings</h2>
+
+			<div class="sound-modal__section">
+				<div class="sound-modal__label">Spin sound</div>
+				<div class="sound-modal__options" id="spinSoundOptions"></div>
+			</div>
+
+			<div class="sound-modal__section">
+				<div class="sound-modal__label">Win sound</div>
+				<div class="sound-modal__options" id="winSoundOptions"></div>
+			</div>
+
+			<div class="sound-modal__section sound-modal__mute">
+				<label class="sound-modal__toggle">
+					<input type="checkbox" id="muteToggle" onchange="toggleMute()" />
+					<span>Mute all sounds</span>
+				</label>
+			</div>
+		</div>
+
 		<main class="main">
+
+			<button class="sound-settings-btn" onclick="openSoundModal()" title="Sound settings">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+					stroke-linecap="round" stroke-linejoin="round">
+					<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+					<path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+					<path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+				</svg>
+				Sounds
+			</button>
 
 			<div class="slot-stage">
 				<div class="stage-arrow stage-arrow--left"></div>

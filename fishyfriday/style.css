@@ -55,7 +55,7 @@ body {
 #app {
 	background: var(--bg);
 	width: 100%;
-	max-width: 600px;
+	/* max-width: 600px; */
 	min-height: 100vh;
 	max-height: 100vh;
 	display: flex;
@@ -159,7 +159,7 @@ body {
 .site-header {
 	position: relative;
 	z-index: 2;
-	margin-top: 64px;
+	margin-top: 48px;
 	margin-bottom: 28px;
 }
 
@@ -743,4 +743,174 @@ body {
 	pointer-events: none;
 	margin-top: 0 !important;
 	margin-bottom: 0 !important;
+}
+
+/* ================================
+   SOUND SETTINGS BUTTON
+================================ */
+.sound-settings-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-family: var(--font-body);
+	font-size: 13px;
+	font-weight: 700;
+	color: var(--text-dim);
+	background: transparent;
+	border: 1.5px solid var(--text-muted);
+	border-radius: 999px;
+	padding: 6px 14px;
+	cursor: pointer;
+	transition: color 0.15s, border-color 0.15s, background 0.15s;
+	align-self: flex-end;
+	margin-right: 4px;
+	position: fixed;
+    top: 32px;
+}
+
+.sound-settings-btn:hover {
+	color: var(--white);
+	border-color: var(--lavender);
+	background: rgba(160, 124, 197, 0.15);
+}
+
+/* ================================
+   SOUND MODAL
+================================ */
+.sound-modal-overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(10, 8, 30, 0.55);
+	z-index: 100;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.25s ease;
+}
+
+.sound-modal-overlay.open {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.sound-modal {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -44%) scale(0.96);
+	z-index: 101;
+	background: var(--indigo-dark);
+	border: 1.5px solid rgba(91, 188, 204, 0.3);
+	border-radius: 20px;
+	padding: 28px 24px 24px;
+	width: min(420px, calc(100vw - 32px));
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.sound-modal.open {
+	opacity: 1;
+	pointer-events: auto;
+	transform: translate(-50%, -50%) scale(1);
+}
+
+.sound-modal__close {
+	position: absolute;
+	top: 14px;
+	right: 16px;
+	background: rgba(255, 255, 255, 0.08);
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	color: var(--text-dim);
+	font-size: 14px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background 0.15s, color 0.15s;
+}
+
+.sound-modal__close:hover {
+	background: rgba(255, 255, 255, 0.15);
+	color: var(--white);
+}
+
+.sound-modal__title {
+	font-family: var(--font-display);
+	font-size: 22px;
+	color: var(--white);
+	margin-bottom: 20px;
+}
+
+.sound-modal__section {
+	margin-bottom: 20px;
+}
+
+.sound-modal__label {
+	font-family: var(--font-body);
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: var(--text-dim);
+	margin-bottom: 10px;
+}
+
+.sound-modal__options {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.sound-option {
+	font-family: var(--font-body);
+	font-size: 13px;
+	font-weight: 700;
+	color: var(--text-dim);
+	background: rgba(255, 255, 255, 0.05);
+	border: 1.5px solid rgba(255, 255, 255, 0.12);
+	border-radius: 999px;
+	padding: 7px 14px;
+	cursor: pointer;
+	transition: all 0.15s;
+	white-space: nowrap;
+}
+
+.sound-option:hover {
+	background: rgba(91, 188, 204, 0.12);
+	border-color: var(--teal-light);
+	color: var(--teal-light);
+}
+
+.sound-option.selected {
+	background: var(--teal-light);
+	border-color: var(--teal-light);
+	color: var(--indigo-deep);
+}
+
+.sound-modal__mute {
+	border-top: 1px solid rgba(255, 255, 255, 0.08);
+	padding-top: 16px;
+	margin-bottom: 0;
+}
+
+.sound-modal__toggle {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-family: var(--font-body);
+	font-size: 14px;
+	font-weight: 600;
+	color: var(--text-dim);
+	cursor: pointer;
+	user-select: none;
+}
+
+.sound-modal__toggle input[type="checkbox"] {
+	width: 18px;
+	height: 18px;
+	accent-color: var(--teal-light);
+	cursor: pointer;
 }
