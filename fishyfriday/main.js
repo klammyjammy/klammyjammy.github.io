@@ -172,8 +172,8 @@ const slotStage = document.querySelector('.slot-stage');
 const ITEM_H = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--item-h')) || 100;
 const VISIBLE = 3;
 const WINDOW_H = ITEM_H * VISIBLE;
-const SPIN_DURATION = 15000; // ms
-const PRE_ITEMS = 75;   // items before the winner in the sequence
+const SPIN_DURATION = 60000; // ms
+const PRE_ITEMS = 1000;   // items before the winner in the sequence
 const POST_ITEMS = 2;    // items after the winner
 
 // ─── Build a single slot item element ────────────────────────────────────────
@@ -230,7 +230,7 @@ function buildTrack(sequence) {
 // ─── Easing ───────────────────────────────────────────────────────────────────
 
 function easeOutQuart(t) {
-	return 1 - Math.pow(1 - t, 4);
+	return 1 - Math.pow(1 - t, 2);
 }
 
 // ─── Show the result card ─────────────────────────────────────────────────────

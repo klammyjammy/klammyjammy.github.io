@@ -159,8 +159,8 @@ body {
 .site-header {
 	position: relative;
 	z-index: 2;
-	margin-top: 48px;
-	margin-bottom: 28px;
+    margin-top: 80px;
+    margin-bottom: 0;
 }
 
 .badge {
