@@ -840,16 +840,6 @@
 		"inaturalist_url": "https://inaturalist.org/taxa/317418"
 	},
 	{
-		"name": "Billfish",
-		"wiki_title": "Billfish",
-		"description": "Group of ray-finned fishes",
-		"summary": "The billfish are saltwater predatory ray-finned fish from the superfamily Xiphioidea, characterised by prominent pointed bills (rostra), and by their large size; some are longer than 4 m (13 ft). Extant billfish include sailfish and marlin, which make up the family Istiophoridae; and swordfish, sole member of the family Xiphiidae. They are often apex predators which feed on a wide variety of smaller fish, crustaceans and cephalopods.",
-		"image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Atlantic_blue_marlin.jpg/330px-Atlantic_blue_marlin.jpg",
-		"full_image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Atlantic_blue_marlin.jpg",
-		"wiki_url": "https://en.wikipedia.org/wiki/Billfish",
-		"inaturalist_url": ""
-	},
-	{
 		"name": "Bitterling",
 		"wiki_title": "Acheilognathidae",
 		"description": "Family of fishes",
@@ -1670,16 +1660,6 @@
 		"inaturalist_url": "https://www.inaturalist.org/taxa/54196"
 	},
 	{
-		"name": "Cisco",
-		"wiki_title": "Cisco (fish)",
-		"description": "Group of fishes",
-		"summary": "The ciscoes (or ciscos) are salmonid fish that differ from other members of the genus Coregonus in having upper and lower jaws of approximately equal length and high gill raker counts.",
-		"image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Cisco.jpg/330px-Cisco.jpg",
-		"full_image_url": "https://upload.wikimedia.org/wikipedia/commons/8/84/Cisco.jpg",
-		"wiki_url": "https://en.wikipedia.org/wiki/Cisco_(fish)",
-		"inaturalist_url": ""
-	},
-	{
 		"name": "Climbing catfish",
 		"wiki_title": "Astroblepus",
 		"description": "Genus of fishes",
@@ -2128,16 +2108,6 @@
 		"full_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Muraenesox_cinereus_-_1700-1880_-_Print_-_Iconographia_Zoologica_-_Special_Collections_University_of_Amsterdam_-_UBA01_IZ15200032.tif/lossy-page1-1920px-Muraenesox_cinereus_-_1700-1880_-_Print_-_Iconographia_Zoologica_-_Special_Collections_University_of_Amsterdam_-_UBA01_IZ15200032.tif.jpg",
 		"wiki_url": "https://en.wikipedia.org/wiki/Daggertooth_pike_conger",
 		"inaturalist_url": "https://inaturalist.org/taxa/194668"
-	},
-	{
-		"name": "Damselfish",
-		"wiki_title": "Damselfish",
-		"description": "Group of fishes",
-		"summary": "Damselfish are fish within the subfamilies Abudefdufinae, Chrominae, Lepidozyginae, Pomacentrinae, and Stegastinae within the family Pomacentridae.",
-		"image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Caribbean_Cocoa_damselfish.jpg/330px-Caribbean_Cocoa_damselfish.jpg",
-		"full_image_url": "https://upload.wikimedia.org/wikipedia/commons/2/24/Caribbean_Cocoa_damselfish.jpg",
-		"wiki_url": "https://en.wikipedia.org/wiki/Damselfish",
-		"inaturalist_url": ""
 	},
 	{
 		"name": "Danio",
@@ -2960,16 +2930,6 @@
 		"inaturalist_url": "https://inaturalist.org/taxa/81552"
 	},
 	{
-		"name": "Flounder",
-		"wiki_title": "Flounder",
-		"description": "Group of flatfish species",
-		"summary": "Flounders are a group of flatfish species. They are demersal fish, found at the bottom of oceans around the world; some species will also enter estuaries.",
-		"image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Pseudopleuronectes_americanus.jpg",
-		"full_image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Pseudopleuronectes_americanus.jpg",
-		"wiki_url": "https://en.wikipedia.org/wiki/Flounder",
-		"inaturalist_url": ""
-	},
-	{
 		"name": "Flying gurnard",
 		"wiki_title": "Flying gurnard",
 		"description": "Species of fish",
@@ -3528,16 +3488,6 @@
 		"full_image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Grunt_sculpin_or_grunt-fish%2C_Rhamphocottus_richardsonii.jpg",
 		"wiki_url": "https://en.wikipedia.org/wiki/Grunt_sculpin",
 		"inaturalist_url": "https://inaturalist.org/taxa/51881"
-	},
-	{
-		"name": "Gudgeon",
-		"wiki_title": "Gudgeon (fish)",
-		"description": "Group of fishes",
-		"summary": "Gudgeon is the common name for a miniature barbel and a number of small freshwater fish of the families Butidae, Cyprinidae, Eleotridae or Ptereleotridae.",
-		"image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Ophieleotris_aporos_2.jpg/330px-Ophieleotris_aporos_2.jpg",
-		"full_image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Ophieleotris_aporos_2.jpg",
-		"wiki_url": "https://en.wikipedia.org/wiki/Gudgeon_(fish)",
-		"inaturalist_url": ""
 	},
 	{
 		"name": "Guitarfish",
@@ -5798,16 +5748,6 @@
 		"full_image_url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Pirate_perch.JPG",
 		"wiki_url": "https://en.wikipedia.org/wiki/Pirate_perch",
 		"inaturalist_url": "https://inaturalist.org/taxa/94272"
-	},
-	{
-		"name": "Plaice",
-		"wiki_title": "Plaice",
-		"description": "Common name for a group of flatfish",
-		"summary": "Plaice is a common name for a group of flatfish that comprises four species: the European, American, Alaskan and scale-eye plaice.",
-		"image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Pleuronectes_platessa.jpg/330px-Pleuronectes_platessa.jpg",
-		"full_image_url": "https://upload.wikimedia.org/wikipedia/commons/9/95/Pleuronectes_platessa.jpg",
-		"wiki_url": "https://en.wikipedia.org/wiki/Plaice",
-		"inaturalist_url": ""
 	},
 	{
 		"name": "Platy",
@@ -9478,16 +9418,6 @@
 		"full_image_url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Synaphobranchus.jpg",
 		"wiki_url": "https://en.wikipedia.org/wiki/Kaup's_arrowtooth_eel",
 		"inaturalist_url": "https://inaturalist.org/taxa/113564"
-	},
-	{
-		"name": "Barb",
-		"wiki_title": "Barb (fish)",
-		"description": "Group of fishes",
-		"summary": "A barb is one of various ray-finned fish species in a non-phylogenetic group, with members in the family Cyprinidae, and especially the genera Barbus and Puntius, but many others also. They were formerly united with the barbels in the subfamily Barbinae but that group is paraphyletic with the Cyprininae. If the Labeoninae are recognized as distinct, many small African \"barbs\" would probably, however, warrant recognition as a new subfamily.",
-		"image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Barbus_Puntius_ticto.JPG/330px-Barbus_Puntius_ticto.JPG",
-		"full_image_url": "https://upload.wikimedia.org/wikipedia/commons/0/04/Barbus_Puntius_ticto.JPG",
-		"wiki_url": "https://en.wikipedia.org/wiki/Barb_(fish)",
-		"inaturalist_url": ""
 	},
 	{
 		"name": "Barbel",
